@@ -20,6 +20,8 @@ Declaration order
     --accent-color:#E7E9FC;
     --light-color:#F4F4FD;
     --white-color:#fff;
+
+    --cubic-bezier:cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -91,7 +93,7 @@ header{
     color:var(--dark-color)    
 }
 
-.site-nav{
+.site-nav{    
     display: flex;
     margin-top: 0;
     margin-bottom: 0;
@@ -104,7 +106,8 @@ header{
 }
 
 .item{
-    display: block;    
+    display: block;  
+    position: relative;  
 }
 
 
@@ -125,16 +128,34 @@ header{
     font-size: 16px;
     line-height: 1.5;
     color:var(--dark-color);
-    text-decoration: none;    
+    text-decoration: none;  
+    
+    transition: color 250ms var(--cubic-bezier) ;
 }
 
 .nav-link:hover,
 .nav-link:focus{
     color:var(--prbrand-color);
 }
-
+/* Виділення активної сторінки, підкреслення */
 .nav-link.current{
-    color:var(--prbrand-color);  
+    color:var(--prbrand-color);
+     
+}
+
+.current::after{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content:' ';
+    
+    
+    
+    width: 100%;
+    height: 4px; 
+    border-radius: 2px;
+  
+    background-color: #404BBF;
 }
 
 .contact-date{
@@ -150,6 +171,8 @@ header{
 
     text-decoration: none;
     color: var(--text-color);
+
+    transition: color 250ms var(--cubic-bezier);
 }
 
 .contact-link:hover,
@@ -211,6 +234,8 @@ header{
     color:var(--light-color);
     letter-spacing:0.04em;
     cursor:pointer;
+
+    
 }
     
         
@@ -431,6 +456,9 @@ padding-right: 12px;
     fill:var(--subtle-color);
     border: 1px solid var(--subtle-color);
     border-radius: 4px;
+
+    transition: fill 250ms var(--cubic-bezier),
+                border 250ms var(--cubic-bezier);
    
 }
 
@@ -490,7 +518,9 @@ footer{
     height: 40px;
     width: 40px;
     background-color: var(--text-color);
-    border-radius: 50%;   
+    border-radius: 50%;  
+    
+    transition: background-color 250ms var(--cubic-bezier);
 }
 
 .footer-element-social:hover,
@@ -525,7 +555,11 @@ footer{
     background-color:var(--accent-color);
     color:var(--prbrand-color);
     letter-spacing:0.04em;
-    cursor:pointer;       
+    cursor:pointer; 
+    
+    transition: color 250ms var(--cubic-bezier),
+                background-color 250ms var(--cubic-bezier),
+                box-shadow 250ms var(--cubic-bezier);
 }
 
 .button:hover,
@@ -583,6 +617,8 @@ footer{
     text-decoration: none;
     color: var(--text-color) ;
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+
+    transition: box-shadow 250ms var(--cubic-bezier) ;
 }
 
 .list-potfolio:hover,
